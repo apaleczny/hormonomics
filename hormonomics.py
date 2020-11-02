@@ -74,10 +74,10 @@ if transform_steps < 1:
             for query_item in query_items:
                 if filter_option == 'm':
                     if query_item['m'] - tolerance < mz_value and mz_value < query_item['m'] + tolerance:
-                        print query_item['name'] + "," + line.strip()
+                        print(query_item['name'] + "," + line.strip())
                 if filter_option == 'm+h':
                     if query_item['mplush'] - tolerance < mz_value and mz_value < query_item['mplush'] + tolerance:
-                        print query_item['name'] + "," + line.strip()
+                        print(query_item['name'] + "," + line.strip())
 else:
     current_step = 1
     found_compounds = dict()
@@ -111,9 +111,9 @@ else:
                     except KeyError:
                         found_compounds[query_item['name']] = {'m': query_item['m'], 'mplush': query_item['mplush'],
                         'best_match': match_value, 'best_match_output': line.strip(), 'cumulative_substitution_value': compond_subtraction*-1}
-    print "Transform Step %s" % current_step
+    print("Transform Step %s" % current_step)
     for key in found_compounds.keys():
-        print key + "," + (found_compounds[key]['best_match_output'])
+        print(key + "," + (found_compounds[key]['best_match_output']))
     current_step += 1
 
     def find_best_matches(name, substitution_value, cumulative_substitution_value, query_items, dataset, filter_option, tolerance):
@@ -152,7 +152,7 @@ else:
     
     new_found_compounts = dict()
     while not (current_step > transform_steps):
-        print "Transform Step %s" % current_step
+        print("Transform Step %s" % current_step)
         for key in found_compounds.keys():
             if filter_option == 'm':
                 substitution_value = found_compounds[key]['m']
@@ -163,6 +163,6 @@ else:
              cumulative_substitution_value,
              query_items, dataset, filter_option, tolerance)
         for key in new_found_compounds.keys():
-            print key + "," + (new_found_compounds[key]['best_match_output'])
+            print(key + "," + (new_found_compounds[key]['best_match_output']))
         current_step += 1
         found_compounds = new_found_compounds
