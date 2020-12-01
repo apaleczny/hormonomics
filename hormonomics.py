@@ -1,7 +1,7 @@
 
 #!/usr/bin/python
 """
-Copyright (c) 2020 Adam Paleczny
+Copyright (c) 2020 Adam Paleczny, Lauren AE Erland
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
